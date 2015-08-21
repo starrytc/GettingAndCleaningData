@@ -4,7 +4,7 @@ This code book describes the variables, the data, and any transformations or wor
 
 ## Data 
 
-* The data for the project is obtained from
+The data for the project is obtained from
  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 * A full description of the data is available at 
  http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones   
@@ -15,21 +15,14 @@ This code book describes the variables, the data, and any transformations or wor
 
 The dataset includes the following files that are relevant to this project:
 
-'features.txt': List of all features.
-
-'activity_labels.txt': Links the class labels with their activity name.
-
-'train/X_train.txt': Training set.
-
-'train/y_train.txt': Training labels.
-
-'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
-
-'test/X_test.txt': Test set.
-
-'test/y_test.txt': Test labels.
-
-‘test/subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+* ’features.txt': List of all features.
+* 'activity_labels.txt': Links the class labels with their activity name.
+* 'train/X_train.txt': Training set.
+* 'train/y_train.txt': Training labels.
+* 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+* 'test/X_test.txt': Test set.
+* 'test/y_test.txt': Test labels.
+* ‘test/subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
 
 ## Transformation Instructions
 
@@ -41,7 +34,7 @@ The dataset includes the following files that are relevant to this project:
 
 ## Steps
 
-* Download the compressed file and place in the working directory; Unzip the file into the same Directory, and view the list of files. Below is the R code used in this step.
+1. Download the compressed file and place in the working directory; Unzip the file into the same Directory, and view the list of files. Below is the R code used in this step.
 
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileUrl, destfile ="./dataset.zip", method = "curl")
@@ -49,9 +42,9 @@ dateDownloaded <- date()
 unzip("./dataset.zip", exdir = './')
 list.files("./", recursive = TRUE)
 
-* Use script run_analysis.R to perform Transformations 1 to 5. 
+2. Use script run_analysis.R to perform Transformations 1 to 5. 
 
-### 1. Merges the training and the test sets to create one data set. Variables used are:
+* Merges the training and the test sets to create one data set. Variables used are:
 
 train - data frame to store the training dataset (7352 observations of 561 variables)
 trainlabel - data frame to store the training labels (7352 observations of 1 variable)
@@ -63,19 +56,19 @@ data - combined data frame to store both the training and test datasets (10299 o
 label - combined data frame to store both the training and test labels (10299 observations of 1 variable)
 subject - combined data frame to store both the training and test subjects (10299 observations of 1 variable)
 
-### 2. Extracts only the measurements on the mean and standard deviation for each measurement. Variables used are:  
+* Extracts only the measurements on the mean and standard deviation for each measurement. Variables used are:  
 
 features - factor to store the variable names
 subset - logical vector. “True” when variable names contain “mean” or “std”.
 subdata - subset of the original data frame that keeps only the variables with names containing “mean” or “std” (10299 observations of 79 variables)
 Data1 - data frame column combined subject, label and subdata (10299 observations of 81 variables), with the column names being “Subject”, “Activity”, and the 79 names extracted from features.
 
-### 3. Uses descriptive activity names to name the activities in the data set. Variables used are:
+* Uses descriptive activity names to name the activities in the data set. Variables used are:
 
 activity - data frame of 6 observations of 2 variables. The first variable is the activity label, the second is the descriptive activity names.
 Data1 - same data frame as above except that the “Activity” column is replaced by activity names. 
 
-### 4. Appropriately labels the data set with descriptive variable names. Did the following character replacements in names(Data1):
+* Appropriately labels the data set with descriptive variable names. Did the following character replacements in names(Data1):
 
 initial “t” -> "time”
 initial “f” -> "frequency"
@@ -84,7 +77,7 @@ initial “f” -> "frequency"
 "Mag" -> "Magnitude"
 "BodyBody" -“> Body"
 
-### 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. The “plyr” library is loaded. A file called tidy_data.txt is created to store the tidy data set. Variable used is:
+* From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. The “plyr” library is loaded. A file called tidy_data.txt is created to store the tidy data set. Variable used is:
 
 Data2 - data frame with the average of each variable for each activity and each subject (180 observations with 81 variables) 
 
