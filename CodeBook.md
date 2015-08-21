@@ -44,42 +44,42 @@ list.files("./", recursive = TRUE)
 
 [Step 2] Use script run_analysis.R to perform Transformations 1 to 5. 
 
-* Merges the training and the test sets to create one data set. Variables used are:
+- Merges the training and the test sets to create one data set. Variables used are:
 
-train - data frame to store the training dataset (7352 observations of 561 variables)
-trainlabel - data frame to store the training labels (7352 observations of 1 variable)
-trainsubject - data frame to store the training subjects (7352 observations of 1 variable)
-test - data frame to store the test dataset (2947 observations of 561 variables)
-testlabel - data frame to store the test labels (2947 observations of 1 variable)
-testsubject - data frame to store the test subjects (2947 observations of 1 variable)
-data - combined data frame to store both the training and test datasets (10299 observations of 561 variables)
-label - combined data frame to store both the training and test labels (10299 observations of 1 variable)
-subject - combined data frame to store both the training and test subjects (10299 observations of 1 variable)
+*train - data frame to store the training dataset (7352 observations of 561 variables)
+*trainlabel - data frame to store the training labels (7352 observations of 1 variable)
+*trainsubject - data frame to store the training subjects (7352 observations of 1 variable)
+*test - data frame to store the test dataset (2947 observations of 561 variables)
+*testlabel - data frame to store the test labels (2947 observations of 1 variable)
+*testsubject - data frame to store the test subjects (2947 observations of 1 variable)
+*data - combined data frame to store both the training and test datasets (10299 observations of 561 variables)
+*label - combined data frame to store both the training and test labels (10299 observations of 1 variable)
+*subject - combined data frame to store both the training and test subjects (10299 observations of 1 variable)
 
-* Extracts only the measurements on the mean and standard deviation for each measurement. Variables used are:  
+- Extracts only the measurements on the mean and standard deviation for each measurement. Variables used are:  
 
-features - factor to store the variable names
-subset - logical vector. “True” when variable names contain “mean” or “std”.
-subdata - subset of the original data frame that keeps only the variables with names containing “mean” or “std” (10299 observations of 79 variables)
-Data1 - data frame column combined subject, label and subdata (10299 observations of 81 variables), with the column names being “Subject”, “Activity”, and the 79 names extracted from features.
+*features - factor to store the variable names
+*subset - logical vector. “True” when variable names contain “mean” or “std”.
+*subdata - subset of the original data frame that keeps only the variables with names containing “mean” or “std” (10299 observations of 79 variables)
+*Data1 - data frame column combined subject, label and subdata (10299 observations of 81 variables), with the column names being “Subject”, “Activity”, and the 79 names extracted from features.
 
-* Uses descriptive activity names to name the activities in the data set. Variables used are:
+- Uses descriptive activity names to name the activities in the data set. Variables used are:
 
 activity - data frame of 6 observations of 2 variables. The first variable is the activity label, the second is the descriptive activity names.
 Data1 - same data frame as above except that the “Activity” column is replaced by activity names. 
 
-* Appropriately labels the data set with descriptive variable names. Did the following character replacements in names(Data1):
+- Appropriately labels the data set with descriptive variable names. Did the following character replacements in names(Data1):
 
-initial “t” -> "time”
-initial “f” -> "frequency"
-"Acc" -> "Accelerometer”
-"Gyro" -> "Gyroscope"
-"Mag" -> "Magnitude"
-"BodyBody" -“> Body"
+*initial “t” -> "time”
+*initial “f” -> "frequency"
+*”Acc" -> "Accelerometer”
+*“Gyro" -> "Gyroscope"
+*”Mag" -> "Magnitude"
+*”BodyBody" -“> Body"
 
-* From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. The “plyr” library is loaded. A file called tidy_data.txt is created to store the tidy data set. Variable used is:
+- From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. The “plyr” library is loaded. A file called tidy_data.txt is created to store the tidy data set. Variable used is:
 
-Data2 - data frame with the average of each variable for each activity and each subject (180 observations with 81 variables) 
+*Data2 - data frame with the average of each variable for each activity and each subject (180 observations with 81 variables) 
 
   
 
