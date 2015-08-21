@@ -4,9 +4,9 @@ This code book describes the variables, the data, and any transformations or wor
 
 ## Data 
 
-The data for the project is obtained from
+* The data for the project is obtained from
  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
-A full description of the data is available at 
+* A full description of the data is available at 
  http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones   
 
 ## Dataset Info
@@ -34,7 +34,7 @@ The dataset includes the following files that are relevant to this project:
 
 ## Steps
 
-1. Download the compressed file and place in the working directory; Unzip the file into the same Directory, and view the list of files. Below is the R code used in this step.
+[Step 1] Download the compressed file and place in the working directory; Unzip the file into the same Directory, and view the list of files. Below is the R code used in this step.
 
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileUrl, destfile ="./dataset.zip", method = "curl")
@@ -42,7 +42,7 @@ dateDownloaded <- date()
 unzip("./dataset.zip", exdir = './')
 list.files("./", recursive = TRUE)
 
-2. Use script run_analysis.R to perform Transformations 1 to 5. 
+[Step 2] Use script run_analysis.R to perform Transformations 1 to 5. 
 
 * Merges the training and the test sets to create one data set. Variables used are:
 
