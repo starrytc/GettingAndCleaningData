@@ -1,4 +1,4 @@
-### CodeBook
+# CodeBook
 
 This code book describes the variables, the data, and any transformations or work performed to clean up the data.
 
@@ -31,7 +31,7 @@ The dataset includes the following files that are relevant to this project:
 
 ‘test/subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
 
-## Transformation Requirements
+## Transformation Instructions
 
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -51,7 +51,7 @@ list.files("./", recursive = TRUE)
 
 * Use script run_analysis.R to perform Transformations 1 to 5. 
 
-1. Merges the training and the test sets to create one data set. Variables used are:
+### 1. Merges the training and the test sets to create one data set. Variables used are:
 
 train - data frame to store the training dataset (7352 observations of 561 variables)
 trainlabel - data frame to store the training labels (7352 observations of 1 variable)
@@ -63,19 +63,19 @@ data - combined data frame to store both the training and test datasets (10299 o
 label - combined data frame to store both the training and test labels (10299 observations of 1 variable)
 subject - combined data frame to store both the training and test subjects (10299 observations of 1 variable)
 
-2. Extracts only the measurements on the mean and standard deviation for each measurement. Variables used are:  
+### 2. Extracts only the measurements on the mean and standard deviation for each measurement. Variables used are:  
 
 features - factor to store the variable names
 subset - logical vector. “True” when variable names contain “mean” or “std”.
 subdata - subset of the original data frame that keeps only the variables with names containing “mean” or “std” (10299 observations of 79 variables)
 Data1 - data frame column combined subject, label and subdata (10299 observations of 81 variables), with the column names being “Subject”, “Activity”, and the 79 names extracted from features.
 
-3. Uses descriptive activity names to name the activities in the data set. Variables used are:
+### 3. Uses descriptive activity names to name the activities in the data set. Variables used are:
 
 activity - data frame of 6 observations of 2 variables. The first variable is the activity label, the second is the descriptive activity names.
 Data1 - same data frame as above except that the “Activity” column is replaced by activity names. 
 
-4. Appropriately labels the data set with descriptive variable names. Did the following character replacements in names(Data1):
+### 4. Appropriately labels the data set with descriptive variable names. Did the following character replacements in names(Data1):
 
 initial “t” -> "time”
 initial “f” -> "frequency"
@@ -84,7 +84,7 @@ initial “f” -> "frequency"
 "Mag" -> "Magnitude"
 "BodyBody" -“> Body"
 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. The “plyr” library is loaded. A file called tidy_data.txt is created to store the tidy data set. Variable used is:
+### 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. The “plyr” library is loaded. A file called tidy_data.txt is created to store the tidy data set. Variable used is:
 
 Data2 - data frame with the average of each variable for each activity and each subject (180 observations with 81 variables) 
 
